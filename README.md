@@ -21,27 +21,27 @@
 
 ---
 
-## Project setup
+## Instalación Proyecto
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Compilar + Live-Reloading para Desarrollo
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Compila y minimiza para production
 ```
 npm run build
 ```
 
-### Run your unit tests
+### Correr los test unitarios
 ```
 npm run test:unit
 ```
 
-### Lints and fixes files
+### Ejecutar el linter
 ```
 npm run lint
 ```
