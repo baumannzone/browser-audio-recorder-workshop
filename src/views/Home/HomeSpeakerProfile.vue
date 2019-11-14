@@ -1,21 +1,21 @@
 <template>
-  <div class="speaker-profile">
+  <div class="speaker-profile mb-5">
     <b-card class="bg-white">
-      <div class="d-flex">
-        <div class="avatar px-5" @mouseenter="changeImgSrc" @mouseleave="changeImgSrc">
+      <div class="d-flex flex-column flex-md-row flex-lg-row">
+        <div class="avatar px-5 d-flex justify-content-center" @mouseenter="changeImgSrc" @mouseleave="changeImgSrc">
           <img :src="require('../../assets/' + imgName + '.png')" alt="avatar" height="100px"
-               class="rounded-circle border-white">
+               class="rounded-circle">
         </div>
         <div>
-          <h2 class="border-bottom border-warning">{{ name }}</h2>
-          <p class="lead">{{ bio }}</p>
+          <h2 class="border-bottom border-warning text-center text-md-left pb-1 mb-3">{{ name }}</h2>
+          <p class="lead text-center text-md-left">{{ bio }}</p>
         </div>
       </div>
-      <div class="social text-center">
+      <div class="social text-center my-3">
         <ul class="list-inline m-0">
-          <li class="list-inline-item" :class="'ico-'+key" v-for="(val, key) in social" :key="key">
-            <a :href="val">
-              icon
+          <li class="list-inline-item mx-1" :class="'ico-'+key" v-for="(val, key) in social" :key="key">
+            <a :href="val.url">
+              <i :class="val.class" class="fa-2x"></i>
             </a>
           </li>
         </ul>
@@ -36,12 +36,30 @@ export default {
     return {
       name: 'Jorge Baumann',
       social: {
-        twitter: 'https://twitter.com/baumannzone',
-        dev: 'https://dev.to/baumannzone',
-        github: 'https://github.com/baumannzone',
-        youtube: 'https://www.youtube.com/channel/UCTTj5ztXnGeDRPFVsBp7VMA',
-        linkedin: 'https://www.linkedin.com/in/baumannzone',
-        medium: 'https://medium.com/@baumannsito'
+        twitter: {
+          url: 'https://twitter.com/baumannzone',
+          class: 'fab fa-twitter'
+        },
+        dev: {
+          url: 'https://dev.to/baumannzone',
+          class: 'fab fa-dev'
+        },
+        github: {
+          url: 'https://github.com/baumannzone',
+          class: 'fab fa-github'
+        },
+        youtube: {
+          url: 'https://www.youtube.com/channel/UCTTj5ztXnGeDRPFVsBp7VMA',
+          class: 'fab fa-youtube'
+        },
+        linkedin: {
+          url: 'https://www.linkedin.com/in/baumannzone',
+          class: 'fab fa-linkedin'
+        },
+        medium: {
+          url: 'https://medium.com/@baumannsito',
+          class: 'fab fa-medium'
+        }
       },
       bio: 'Desarrollador web Full-Stack. Apasionado de la tecnología en general y del desarrollo web en particular. Actualmente trabaja para el departamento de Liquid Squad (Accenture).',
       currentImg: imgNames.baumannzone
@@ -66,7 +84,7 @@ export default {
 
     .avatar
       img
-        border 3px solid white
+        border 3px solid #5ce2c2
 
     .social
       ul
