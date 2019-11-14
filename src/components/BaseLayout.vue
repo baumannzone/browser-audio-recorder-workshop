@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="p-md-5 p-2">
+    <div class="p-2">
       <slot></slot>
     </div>
   </div>
