@@ -1,7 +1,7 @@
 <template>
   <div class="home text-light">
     <BaseHeaderTitle
-      title="Convierte tu navegador en una grabadora de audio 🎤"
+      title="🎙 Convierte tu navegador en una grabadora de audio 🎤"
       subtitle="Usando funciones nativas de javascript de tu navegador"
     >
     </BaseHeaderTitle>

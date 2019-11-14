@@ -5,7 +5,10 @@ Vue.use(VueRouter)
 
 const routeOptions = [
   { path: '/', name: 'Home' },
-  { path: '/about', name: 'About' }
+  { path: '/about', name: 'About' },
+  { path: '/audio', name: 'Audio' },
+  { path: '/video', name: 'Video' },
+  { path: '/faces', name: 'FaceDetection' }
 ]
 
 const routes = routeOptions.map(r => {

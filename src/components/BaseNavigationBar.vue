@@ -3,6 +3,12 @@
     <router-link to="/">Home</router-link>
     |
     <router-link to="/about">About</router-link>
+    |
+    <router-link to="/audio">Audio</router-link>
+    |
+    <router-link to="/video">Video</router-link>
+    |
+    <router-link to="/faces">Faces</router-link>
   </div>
 </template>
 
