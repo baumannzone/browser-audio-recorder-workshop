@@ -5,7 +5,7 @@
 
 ---
 
-![main-image](./src/assets/main.png)
+![main-image](src/assets/main.png)
 
 ## Requisitos
 
