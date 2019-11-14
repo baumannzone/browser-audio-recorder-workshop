@@ -5,12 +5,16 @@
 
 ---
 
+![main-image](./src/assets/main.png)
+
 ## Requisitos
 
-Tener instalado:
+💻 Traer portátil y tener instalado:
+
 - [Node.js](https://nodejs.org/es/)
 - [Git](https://git-scm.com/)
 - Navegador moderno _(Recomendado Google Chrome)_
+
 
 - Opcional: [VueDevTools](https://github.com/vuejs/vue-devtools#installation)
 
