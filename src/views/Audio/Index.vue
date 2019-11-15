@@ -19,6 +19,13 @@
 
       <hr>
 
+      <h6 class="text-dark">Tip:</h6>
+      <pre class="bg-light p-3">
+State:  inactive
+State:  recording
+State:  paused
+State:  recording</pre>
+
       <div v-if="hasAudios">
         <ul class="list-unstyled audio-list">
           <li v-for="(item, idx) in audioList" :key="idx" class="audio-item mb-3">
