@@ -1,24 +1,13 @@
 <template>
   <div class="audio-page mb-5">
 
-    <div class="shadow-sm mb-5 p-5 bg-white rounded">
-      <header class="text-center border-bottom border-warning mb-4">
-        <h1 class="text-dark">Shape Detection API</h1>
-        <h3>aka Face Detector API</h3>
-      </header>
-      <p class="lead">
-        This API provides access to accelerated shape detectors (e.g. human faces) for still images and/or live image feeds.
-        <br>
-        It is not a W3C Standard nor is it on the W3C Standards Track. <em>Only for Chrome</em>
-      </p>
-    </div>
+    <FaceDetectionHeader/>
 
     <div class="shadow-sm p-5 bg-white rounded">
       <b-button variant="primary" @click="faces" class="mr-2">Detectar</b-button>
       <hr>
 
       <div id="wrap" class="wrap" ref="wrap">
-        <!-- https://unsplash.com/photos/T6zu4jFhVwg -->
         <figure>
           <img src="../../assets/faces.png" alt="img" ref="image">
           <figcaption class="mt-2">
@@ -32,8 +21,11 @@
 </template>
 
 <script>
+import FaceDetectionHeader from './FaceDetectionHeader'
+
 export default {
   name: 'FaceDetection',
+  components: { FaceDetectionHeader },
   data () {
     return {
 

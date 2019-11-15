@@ -1,15 +1,6 @@
 <template>
   <div class="audio-page mb-5">
-    <div class="shadow-sm mb-5 p-5 bg-white rounded">
-      <header class="text-center border-bottom border-warning mb-4">
-        <h1 class="text-dark">MediaStream Recording API</h1>
-        <h3>aka Media Recorder API</h3>
-      </header>
-      <p class="lead">
-        La API de MediaStream Recording nos permite capturar datos (de audio y/o video) que son generados por un objeto de tipo MediaStream
-        o HTMLMediaElement para analizarlos, procesarlos o guardarlos.
-      </p>
-    </div>
+    <MediaRecorderHeader />
 
     <div class="shadow-sm p-5 bg-white rounded">
       <b-button variant="primary" class="mr-2" @click="start" :disabled="startDisabled">Grabar</b-button>
@@ -44,8 +35,11 @@ State:  recording</pre>
 </template>
 
 <script>
+import MediaRecorderHeader from '@/components/HeaderMediaRecorderAPI'
+
 export default {
   name: 'Audio',
+  components: { MediaRecorderHeader },
   data () {
     return {
       supported: undefined,
@@ -140,25 +134,3 @@ export default {
   }
 }
 </script>
-
-<style lang="stylus">
-/*
-  audio::-webkit-media-controls-panel,
-  audio::-webkit-media-controls-mute-button,
-  audio::-webkit-media-controls-play-button
-  audio::-webkit-media-controls-timeline,
-  audio::-webkit-media-controls-timeline-container,
-  audio::-webkit-media-controls-current-time-display,
-  audio::-webkit-media-controls-time-remaining-display,
-  audio::-webkit-media-controls-volume-slider,
-  audio::-webkit-media-controls-volume-slider-container,
-  audio::-webkit-media-controls-seek-back-button,
-  audio::-webkit-media-controls-seek-forward-button,
-  audio::-webkit-media-controls-fullscreen-button,
-  audio::-webkit-media-controls-rewind-button,
-  audio::-webkit-media-controls-return-to-realtime-button,
-  audio::-webkit-media-controls-toggle-closed-captions-button
-    color red
-    background-color aqua
-  */
-</style>

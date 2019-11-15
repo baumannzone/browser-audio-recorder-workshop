@@ -1,15 +1,7 @@
 <template>
   <div class="audio-page mb-5">
-    <div class="shadow-sm mb-5 p-5 bg-white rounded">
-      <header class="text-center border-bottom border-warning mb-4">
-        <h1 class="text-dark">MediaStream Recording API</h1>
-        <h3>aka Media Recorder API</h3>
-      </header>
-      <p class="lead">
-        La API de MediaStream Recording nos permite capturar datos (de audio y/o video) que son generados por un objeto de tipo MediaStream
-        o HTMLMediaElement para analizarlos, procesarlos o guardarlos.
-      </p>
-    </div>
+
+    <MediaRecorderHeader />
 
     <div class="shadow-sm p-5 bg-white rounded">
       <b-button variant="primary" @click="start" class="mr-2">Grabar</b-button>
@@ -38,8 +30,11 @@
 </template>
 
 <script>
+import MediaRecorderHeader from '@/components/HeaderMediaRecorderAPI'
+
 export default {
   name: 'Video',
+  components: { MediaRecorderHeader },
   data () {
     return {
       mediaRecorder: undefined,
