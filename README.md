@@ -22,6 +22,7 @@
 
 
 - Opcional: [VueDevTools](https://github.com/vuejs/vue-devtools#installation)
+- 🖖💚 Chuleta: [Vue-Essentials-Cheat-Sheet.pdf](https://www.vuemastery.com/pdf/Vue-Essentials-Cheat-Sheet.pdf)
 
 
 ---
