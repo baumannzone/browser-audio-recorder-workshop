@@ -12,12 +12,13 @@
     </div>
 
     <div class="shadow-sm p-5 bg-white rounded">
-      <b-button variant="primary" class="mr-2" @click="start" :disabled="startDisabled">Start</b-button>
-      <b-button variant="secondary" @click="stop" :disabled="stopDisabled">Stop</b-button>
+      <b-button variant="primary" class="mr-2" @click="start" :disabled="startDisabled">Grabar</b-button>
+      <b-button variant="outline-primary" class="mr-2" @click="pause" :disabled="stopDisabled">Pausar</b-button>
+      <b-button variant="outline-success" class="mr-2" @click="resume" :disabled="startDisabled">Reanudar</b-button>
+      <b-button variant="secondary" @click="stop" :disabled="stopDisabled">Parar</b-button>
 
       <hr>
 
-      <!--
       <div v-if="hasAudios">
         <ul class="list-unstyled audio-list">
           <li v-for="(item, idx) in audioList" :key="idx" class="audio-item mb-3">
@@ -30,7 +31,7 @@
           </li>
         </ul>
       </div>
-      -->
+
     </div>
   </div>
 </template>
@@ -60,15 +61,24 @@ export default {
   },
   methods: {
     start () {
+      console.log('State: ', this.mediaRecorder.state)
       this.mediaRecorder.start()
       this.isRecording = true
-      console.log('State: ', this.mediaRecorder.state)
-      console.log('recorder started')
     },
     stop () {
+      console.log('State: ', this.mediaRecorder.state)
       this.mediaRecorder.stop()
       this.isRecording = false
+    },
+    pause () {
       console.log('State: ', this.mediaRecorder.state)
+      this.mediaRecorder.pause()
+      this.isRecording = false
+    },
+    resume () {
+      console.log('State: ', this.mediaRecorder.state)
+      this.mediaRecorder.resume()
+      this.isRecording = true
     },
     removeItem (idx) {
       this.audioList.splice(idx, 1)
@@ -144,11 +154,4 @@ export default {
     color red
     background-color aqua
   */
-
-audio {
-  width: 600px;
-  box-shadow: 5px 5px 20px rgba(0,0, 0, 0.4);
-  border-radius: 90px;
-  transform: scale(1.05);
-}
 </style>
