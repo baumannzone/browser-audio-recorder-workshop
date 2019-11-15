@@ -4,24 +4,19 @@
     <MediaRecorderHeader />
 
     <div class="shadow-sm p-5 bg-white rounded">
-      <b-button variant="primary" @click="start" class="mr-2">Grabar</b-button>
-      <b-button variant="outline-primary" class="mr-2" @click="pause">Pausar</b-button>
-      <b-button variant="outline-success" class="mr-2" @click="resume">Reanudar</b-button>
-      <b-button @click="stop">Parar</b-button>
+      <b-button variant="primary" class="mr-2">Grabar</b-button>
+      <b-button variant="outline-primary" class="mr-2">Pausar</b-button>
+      <b-button variant="outline-success" class="mr-2">Reanudar</b-button>
+      <b-button>Parar</b-button>
       <hr>
 
-      <div v-if="hasVideos">
+      <!-- TODO -->
+      <!-- Si hay videos... -->
+      <div>
         <ul class="list-unstyled video-list">
-          <li v-for="(item, idx) in videoList" :key="idx" class="video-item mb-3">
-            <div class="d-flex justify-content-between bg-light p-2">
-              <video controls :src="item.src">
-                <code>video</code> not supported
-              </video>
-              <div class="d-flex align-items-center">
-                <b-button variant="danger" size="sm" @click="removeItem(idx)">Delete</b-button>
-              </div>
-            </div>
-          </li>
+          <!-- TODO -->
+          <!-- Bucle videos -->
+          <li></li>
         </ul>
       </div>
 
@@ -37,79 +32,26 @@ export default {
   components: { MediaRecorderHeader },
   data () {
     return {
-      mediaRecorder: undefined,
-      chunks: [],
-      videoList: []
+      // TODO
+      // variables
     }
   },
   computed: {
-    startDisabled () {
-      return this.isRecording === true
-    },
-    stopDisabled () {
-      return this.isRecording === false
-    },
-    hasVideos () {
-      return this.videoList.length > 0
-    }
+    // TODO
+    // Expresiones
   },
   methods: {
-    start () {
-      console.log('State: ', this.mediaRecorder.state)
-      this.mediaRecorder.start()
-      this.isRecording = true
-    },
-    stop () {
-      console.log('State: ', this.mediaRecorder.state)
-      this.mediaRecorder.stop()
-      this.isRecording = false
-    },
-    pause () {
-      console.log('State: ', this.mediaRecorder.state)
-      this.mediaRecorder.pause()
-      this.isRecording = false
-    },
-    resume () {
-      console.log('State: ', this.mediaRecorder.state)
-      this.mediaRecorder.resume()
-      this.isRecording = true
-    },
-    removeItem (idx) {
-      this.videoList.splice(idx, 1)
-    }
+    // TODO
+    // Funciones / Métodos
   },
   created () {
     // Comprobar si el navegador soporta esta 'feature'
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-      navigator.mediaDevices.getUserMedia({ audio: true, video: true })
-        .then((stream) => {
-          console.log(stream)
 
-          this.mediaRecorder = new MediaRecorder(stream)
-
-          this.mediaRecorder.ondataavailable = (e) => {
-            this.chunks.push(e.data)
-          }
-
-          this.mediaRecorder.onstop = (e) => {
-            // https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Lista_completa_de_tipos_MIME
-            // const blob = new Blob(this.chunks, { type: 'video/webm' })
-            const blob = new Blob(this.chunks, { type: 'video/x-msvideo' })
-            const videoURL = window.URL.createObjectURL(blob)
-            this.chunks = []
-
-            this.videoList.push({
-              src: videoURL
-            })
-
-            // window.URL.revokeObjectURL(blob)
-          }
-        })
-        .catch((err) => {
-          console.log('Err: ' + err)
-        })
+      // TODO
+      // Pedir acceso al video
     } else {
-      console.log('VIDEO: NO SOPORTADO')
+      console.log(' -- No video 😭')
     }
   }
 }

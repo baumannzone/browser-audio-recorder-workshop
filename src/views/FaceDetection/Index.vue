@@ -4,10 +4,10 @@
     <FaceDetectionHeader/>
 
     <div class="shadow-sm p-5 bg-white rounded">
-      <b-button variant="primary" @click="faces" class="mr-2">Detectar</b-button>
+      <b-button variant="primary">Detectar</b-button>
       <hr>
 
-      <div id="wrap" class="wrap" ref="wrap">
+      <div class="wrap" ref="wrap">
         <figure>
           <img src="../../assets/faces.png" alt="img" ref="image">
           <figcaption class="mt-2">
@@ -26,51 +26,30 @@ import FaceDetectionHeader from './FaceDetectionHeader'
 export default {
   name: 'FaceDetection',
   components: { FaceDetectionHeader },
-  data () {
-    return {
-
-    }
-  },
-  computed: {
-
-  },
   methods: {
     faces () {
-      // if (typeof window.FaceDetector === 'undefined') {
-      //   console.log('No face detection!')
-      //   return
+
+      // TODO 1
+      // if (window.FaceDetector == undefined) {
+      //   console.error('Face Detection not supported on this platform');
+      // }
+      // Bonus! 😝
+      // if (window.BarcodeDetector == undefined) {
+      //   console.error('Barcode Detection not supported on this platform');
       // }
 
-      // Clear face box
+      // 🧹
       // const arrFaces = [...document.getElementsByClassName('face')]
       // arrFaces.forEach((face) => {
       //   face.parentNode.removeChild(face)
       // })
 
-      const faceDetector = new window.FaceDetector()
+      // TODO 2
+      // 1. Crear new faceDetector
+      // 2. Detectar "caras"
+      // 3. Recorrer "caras"
+      // 4. Crear cajitas con la clase `face`
 
-      faceDetector.detect(this.$refs.image)
-        .then(faces => {
-          console.log(faces)
-
-          faces.forEach((face) => {
-            // Face box
-            const { width, height, top, left } = face.boundingBox
-            const faceBox = document.createElement('div')
-            faceBox.classList.add('face')
-            faceBox.style.cssText = `
-              width: ${width}px;
-              height: ${height}px;
-              top: ${top}px;
-              left: ${left}px;
-            `
-            this.$refs.wrap.appendChild(faceBox)
-            console.log(faceBox)
-          })
-        })
-        .catch((err) => {
-          console.error(err.toString())
-        })
     }
   }
 }

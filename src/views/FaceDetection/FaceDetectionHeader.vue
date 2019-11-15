@@ -10,6 +10,7 @@
       <br>
       It is not a W3C Standard nor is it on the W3C Standards Track. <em>Only for Chrome</em>
     </p>
+    <a href="https://wicg.github.io/shape-detection-api/">https://wicg.github.io/shape-detection-api/</a>
   </div>
 </template>
 <script>
