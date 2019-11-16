@@ -4,7 +4,8 @@
     <FaceDetectionHeader/>
 
     <div class="shadow-sm p-5 bg-white rounded">
-      <b-button variant="primary" @click="faces" class="mr-2">Detectar</b-button>
+      <b-button variant="primary" @click="checkFaces" class="mr-2">Detectar</b-button>
+
       <hr>
 
       <div id="wrap" class="wrap" ref="wrap">
@@ -26,29 +27,22 @@ import FaceDetectionHeader from './FaceDetectionHeader'
 export default {
   name: 'FaceDetection',
   components: { FaceDetectionHeader },
-  data () {
-    return {
-
-    }
-  },
-  computed: {
-
-  },
   methods: {
-    faces () {
-      // if (typeof window.FaceDetector === 'undefined') {
-      //   console.log('No face detection!')
-      //   return
-      // }
+    checkFaces () {
+      // Comprobar si está disponible
+      if (typeof window.FaceDetector === 'undefined') {
+        console.log('No face detection!')
+        return
+      }
 
-      // Clear face box
-      // const arrFaces = [...document.getElementsByClassName('face')]
-      // arrFaces.forEach((face) => {
-      //   face.parentNode.removeChild(face)
-      // })
+      // Limpiar 🧹
+      const arrFaces = [...document.getElementsByClassName('face')]
+      arrFaces.forEach((face) => {
+        face.parentNode.removeChild(face)
+      })
 
-      // Comparar: https://cloud.google.com/vision/#demostracin-de-la-api-vision
-
+      // Comparar API vison de google:
+      // https://cloud.google.com/vision/#demostracin-de-la-api-vision
       const faceDetector = new window.FaceDetector()
 
       faceDetector.detect(this.$refs.image)
@@ -58,15 +52,23 @@ export default {
           faces.forEach((face) => {
             // Face box
             const { width, height, top, left } = face.boundingBox
+
+            // Crear un elemento div
             const faceBox = document.createElement('div')
+
+            // Agregar la clase `face` (definida abajo, en el bloque css)
             faceBox.classList.add('face')
+
+            // Añadir CSS: posición y tamaño
             faceBox.style.cssText = `
               width: ${width}px;
               height: ${height}px;
               top: ${top}px;
               left: ${left}px;
             `
+            // Añadir el elemento div al DOM
             this.$refs.wrap.appendChild(faceBox)
+
             console.log(faceBox)
           })
         })
