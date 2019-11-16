@@ -47,6 +47,8 @@ export default {
       //   face.parentNode.removeChild(face)
       // })
 
+      // Comparar: https://cloud.google.com/vision/#demostracin-de-la-api-vision
+
       const faceDetector = new window.FaceDetector()
 
       faceDetector.detect(this.$refs.image)
